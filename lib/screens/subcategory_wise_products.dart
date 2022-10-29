@@ -201,7 +201,7 @@ class _SubCategoryWiseProductState extends State<SubCategoryWiseProduct> {
               stroked_price: _productList[index].stroked_price,
               has_discount: _productList[index].has_discount,
             );
-          },
+          }, 
         ),
       );
     } else if (_totalData == 0) {

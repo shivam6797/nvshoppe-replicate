@@ -109,12 +109,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   var cityId;
   var cityName;
+  var user_id;
   checkCity() async {
     try {
       var prefs = await SharedPreferences.getInstance();
       cityId = await prefs.getString("cityId");
       cityName = await prefs.getString("cityName");
+      user_id = await prefs.getString("userId");
       log("cITY id nAME => ${cityId.toString() + cityName}");
+      log("user id nAME => ${user_id.toString() + user_id}");
+
     } catch (e) {
       log(e);
     }
@@ -143,7 +147,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   fetchHomeCategories() async {
-    var categoryResponse = await CategoryRepository().getCategories();
+    var categoryResponse = await CategoryRepository().getTopCategories(shopId);
     _homeCategoryList.addAll(categoryResponse.categories);
     _isCategoryInitial = false;
     setState(() {});

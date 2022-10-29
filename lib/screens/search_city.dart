@@ -58,7 +58,7 @@ class _SearchCityState extends State<SearchCity> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(),
         title: Container(
-          height: 40,
+          height: 45,
           child: TextField(
             controller: controller,
             cursorColor: Colors.grey,
@@ -100,13 +100,13 @@ class _SearchCityState extends State<SearchCity> {
                         )));
           },
           child: Container(
-            height: 40,
+            height: 45,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6.0),
                   child: Text(
                     item.name,
                     style: TextStyle(
@@ -139,13 +139,13 @@ class _SearchCityState extends State<SearchCity> {
                         )));
           },
           child: Container(
-            height: 40,
+            height: 45,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6.0),
                   child: Text(
                     item.name,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -161,7 +161,7 @@ class _SearchCityState extends State<SearchCity> {
 
   //-------------------------Api----------------------//
   Future searchApiGet() async {
-    var url = "https://nvshoppe.thedigitalkranti.com/api/v2/cities?keyword=" +
+    var url = "https://api.nvshoppe.com/api/v2/cities?keyword=" +
         controller.text;
 
     var responce = await http.get(Uri.parse(url));

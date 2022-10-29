@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/services.dart';
 import 'package:active_ecommerce_flutter/helpers/shared_value_helper.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../my_theme.dart';
+import 'filter.dart';
 import 'new_category_list.dart';
 
 class Main extends StatefulWidget {
@@ -80,119 +82,119 @@ class _MainState extends State<Main> {
               FloatingActionButtonLocation.centerDocked,
           //specify the location of the FAB
 
-          // floatingActionButton: Visibility(
-          //   visible: MediaQuery.of(context).viewInsets.bottom ==
-          //       0.0, // if the kyeboard is open then hide, else show
-          //   child: FloatingActionButton(
-          //     backgroundColor: MyTheme.accent_color,
-          //     onPressed: () {},
-          //     tooltip: "start FAB",
-          //     child: Container(
-          //         margin: EdgeInsets.all(0.0),
-          //         child: IconButton(
-          //             icon: new Image.asset('assets/square_logo.png'),
-          //             tooltip: 'Action',
-          //             onPressed: () {
-          //               Navigator.push(context,
-          //                   MaterialPageRoute(builder: (context) {
-          //                 return Filter(
-          //                   selected_filter: "sellers",
-          //                 );
-          //               }));
-          //             })),
-          //     elevation: 0.0,
-          //   ),
-          // ),
+          floatingActionButton: Visibility(
+            visible: MediaQuery.of(context).viewInsets.bottom ==
+                0.0, // if the kyeboard is open then hide, else show
+            child: FloatingActionButton(
+              backgroundColor: MyTheme.accent_color,
+              onPressed: () {},
+              tooltip: "start FAB",
+              child: Container(
+                  margin: EdgeInsets.all(0.0),
+                  child: IconButton(
+                      icon: new Image.asset('assets/square_logo.png'),
+                      tooltip: 'Action',
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Filter(
+                            selected_filter: "sellers",
+                          );
+                        }));
+                      })),
+              elevation: 0.0,
+            ),
+          ),
 
-          // bottomNavigationBar: BottomAppBar(
-          //   color: Colors.transparent,
-          //   clipBehavior: Clip.antiAlias,
-          //   child: BackdropFilter(
-          //     filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-          //     child: BottomNavigationBar(
-          //       type: BottomNavigationBarType.fixed,
-          //       onTap: onTapped,
-          //       currentIndex: _currentIndex,
-          //       backgroundColor: Colors.white.withOpacity(0.8),
-          //       fixedColor: Theme.of(context).accentColor,
-          //       unselectedItemColor: Color.fromRGBO(153, 153, 153, 1),
-          //       items: [
-          //         BottomNavigationBarItem(
-          //             icon: Image.asset(
-          //               "assets/home.png",
-          //               color: _currentIndex == 0
-          //                   ? Theme.of(context).accentColor
-          //                   : Color.fromRGBO(153, 153, 153, 1),
-          //               height: 20,
-          //             ),
-          //             title: Padding(
-          //               padding: const EdgeInsets.all(8.0),
-          //               child: Text(
-          //                 AppLocalizations.of(context)
-          //                     .main_screen_bottom_navigation_home,
-          //                 style: TextStyle(fontSize: 12),
-          //               ),
-          //             )),
-          //         BottomNavigationBarItem(
-          //             icon: Image.asset(
-          //               "assets/categories.png",
-          //               color: _currentIndex == 1
-          //                   ? Theme.of(context).accentColor
-          //                   : Color.fromRGBO(153, 153, 153, 1),
-          //               height: 20,
-          //             ),
-          //             title: Padding(
-          //               padding: const EdgeInsets.all(8.0),
-          //               child: Text(
-          //                 AppLocalizations.of(context)
-          //                     .main_screen_bottom_navigation_categories,
-          //                 style: TextStyle(fontSize: 12),
-          //               ),
-          //             )),
-          //         // BottomNavigationBarItem(
-          //         //   icon: Icon(
-          //         //     Icons.circle,
-          //         //     color: Colors.transparent,
-          //         //   ),
-          //         //   title: Text(""),
-          //         // ),
-          //         BottomNavigationBarItem(
-          //             icon: Image.asset(
-          //               "assets/cart.png",
-          //               color: _currentIndex == 3
-          //                   ? Theme.of(context).accentColor
-          //                   : Color.fromRGBO(153, 153, 153, 1),
-          //               height: 20,
-          //             ),
-          //             title: Padding(
-          //               padding: const EdgeInsets.all(8.0),
-          //               child: Text(
-          //                 AppLocalizations.of(context)
-          //                     .main_screen_bottom_navigation_cart,
-          //                 style: TextStyle(fontSize: 12),
-          //               ),
-          //             )),
-          //         BottomNavigationBarItem(
-          //           icon: Image.asset(
-          //             "assets/profile.png",
-          //             color: _currentIndex == 4
-          //                 ? Theme.of(context).accentColor
-          //                 : Color.fromRGBO(153, 153, 153, 1),
-          //             height: 20,
-          //           ),
-          //           title: Padding(
-          //             padding: const EdgeInsets.all(8.0),
-          //             child: Text(
-          //               AppLocalizations.of(context)
-          //                   .main_screen_bottom_navigation_profile,
-          //               style: TextStyle(fontSize: 12),
-          //             ),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.transparent,
+            clipBehavior: Clip.antiAlias,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                onTap: onTapped,
+                currentIndex: _currentIndex,
+                backgroundColor: Colors.white.withOpacity(0.8),
+                fixedColor: Theme.of(context).accentColor,
+                unselectedItemColor: Color.fromRGBO(153, 153, 153, 1),
+                items: [
+                  BottomNavigationBarItem(
+                      icon: Image.asset(
+                        "assets/home.png",
+                        color: _currentIndex == 0
+                            ? Theme.of(context).accentColor
+                            : Color.fromRGBO(153, 153, 153, 1),
+                        height: 20,
+                      ),
+                      title: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          AppLocalizations.of(context)
+                              .main_screen_bottom_navigation_home,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      )),
+                  BottomNavigationBarItem(
+                      icon: Image.asset(
+                        "assets/categories.png",
+                        color: _currentIndex == 1
+                            ? Theme.of(context).accentColor
+                            : Color.fromRGBO(153, 153, 153, 1),
+                        height: 20,
+                      ),
+                      title: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          AppLocalizations.of(context)
+                              .main_screen_bottom_navigation_categories,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      )),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.circle,
+                      color: Colors.transparent,
+                    ),
+                    title: Text(""),
+                  ),
+                  BottomNavigationBarItem(
+                      icon: Image.asset(
+                        "assets/cart.png",
+                        color: _currentIndex == 3
+                            ? Theme.of(context).accentColor
+                            : Color.fromRGBO(153, 153, 153, 1),
+                        height: 20,
+                      ),
+                      title: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          AppLocalizations.of(context)
+                              .main_screen_bottom_navigation_cart,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      )),
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      "assets/profile.png",
+                      color: _currentIndex == 4
+                          ? Theme.of(context).accentColor
+                          : Color.fromRGBO(153, 153, 153, 1),
+                      height: 20,
+                    ),
+                    title: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        AppLocalizations.of(context)
+                            .main_screen_bottom_navigation_profile,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

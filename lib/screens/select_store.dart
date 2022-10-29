@@ -138,7 +138,7 @@ class _SelectStoreState extends State<SelectStore> {
   //-------------------------Api----------------//
 
   Future selectStoreApiGet() async {
-    var url = "https://nvshoppe.thedigitalkranti.com/api/v2/shop/search/" +
+    var url = "https://api.nvshoppe.com/api/v2/shop/search/" +
         widget.id.toString();
     // widget.name.toString();
     log("===>" + url);

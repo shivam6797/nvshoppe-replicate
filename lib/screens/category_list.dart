@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/my_theme.dart';
 import 'package:active_ecommerce_flutter/ui_sections/drawer.dart';
 import 'package:active_ecommerce_flutter/custom/toast_component.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 import 'package:active_ecommerce_flutter/screens/category_products.dart';
 import 'package:active_ecommerce_flutter/repositories/category_repository.dart';
@@ -24,12 +27,31 @@ class CategoryList extends StatefulWidget {
   final bool is_base_category;
   final bool is_top_category;
 
+  
+  
+
   @override
   _CategoryListState createState() => _CategoryListState();
 }
 
 class _CategoryListState extends State<CategoryList> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  var cityId;
+  var cityName;
+  var user_id;
+  checkCity() async {
+    try {
+      var prefs = await SharedPreferences.getInstance();
+      cityId = await prefs.getString("cityId");
+      cityName = await prefs.getString("cityName");
+      user_id = await prefs.getString("userId");
+      log("cITY id nAME => ${cityId.toString() + cityName}");
+      log("user id nAME => ${user_id.toString() + user_id}");
+
+    } catch (e) {
+      log(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +136,7 @@ class _CategoryListState extends State<CategoryList> {
 
   buildCategoryList() {
     var future = widget.is_top_category
-        ? CategoryRepository().getTopCategories()
+        ? CategoryRepository().getTopCategories(user_id)
         : CategoryRepository()
             .getCategories(parent_id: widget.parent_category_id);
     return FutureBuilder(

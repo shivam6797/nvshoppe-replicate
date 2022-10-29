@@ -27,12 +27,14 @@ class CategoryRepository {
     return categoryResponseFromJson(response.body);
   }
 
-  Future<CategoryResponse> getTopCategories() async {
-    Uri url = Uri.parse("${AppConfig.BASE_URL}/categories/top");
+  Future<CategoryResponse> getTopCategories(int Id) async {
+    Uri url = Uri.parse("${AppConfig.BASE_URL}/categories-shop-wise?shopid=$Id");
     final response =
     await http.get(url,headers: {
       "App-Language": app_language.$,
     });
+       print("${AppConfig.BASE_URL}/categories-shop-wise?shopid=$Id");
+    print(response.body.toString());
     return categoryResponseFromJson(response.body);
   }
 
